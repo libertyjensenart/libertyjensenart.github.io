@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Removing this will mess with element sizing for the whole site*/
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif; /* change the main font of the site here*/
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Styling*/
+#header {
+  /* Color and spacing */
+  background-color: black;
+  color: white;
+  padding: 20px;
+  /* Code below creates the sticky header, if you don't like that then delete this */
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+#header h1 {
+  text-align: center;
+}
+
+/* This is only spacing for the navigation links, don't edit unless you want to change that*/
+#navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* to change the style of the navigation links, edit this:*/
+#navLinks a {
+  color: #bdbdbd;
+  /* transition makes it so the link doesn't instantly change on hover. you can remove
+  this or play with the timing. This is especially useful if you're changing the size or
+  saturation of elements */
+  transition: all 0.2s ease-out;
+}
+
+#navLinks a:hover {
+  color: white;
+  /* You can also do other things here, like make it bigger if you want:
+  transform: scale(120%);*/
+}
+
+.main {
+  padding: 0em 2em 1em 2em;
+  margin: 0 auto; /* centers the main content */
+  background-color: white;
+}
+
+hr {
+  margin: 2em 0;
+}
+
+#footer {
+  text-align: center;
+  padding: 15px;
+}
+
+/* Page specific */
+.textPage {
+  max-width: 800px; /*You can remove or not use this, I just think it looks better on bigger windows */
+}
+
+/* Touching any CSS below this can break the gallery. Proceed with caution */
+.gallery {
+  padding-top: 1em;
+  /* base number of columns, can make this 1 to ?? at bigger numbers it'll look funny 
+     if you edit this, you may want to update the columns in the mobile sizing starting on line 105
+  */
+  columns: auto 3;
+  text-align: center;
+}
+
+.gallery img {
+  border: 1px solid black; /* You can remove the border if you want */
+  width: 100%;
+}
+
+figure {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.spotlightImage {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Below changes the number of columns in the gallery for smaller screens
+   If you changed the column number on line 85, you might have to edit it here too
+   (it's not exactly mobile and tablet sizing)
+    */
+@media only screen and (max-width: 800px) {
+  .gallery {
+    columns: auto 2;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .gallery {
+    columns: auto 1;
+  }
+}
