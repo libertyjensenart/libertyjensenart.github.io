@@ -34,12 +34,14 @@ button {
   color: #296f86;
   border-radius: 7px;
   width: 500px;
+  max-width: 80%;
   padding: 20px;
   margin: 15px;
   text-transform: uppercase;
 }
 
 img {
+  max-width: 75%;
   width: 75vw;
   height: auto;
 }
