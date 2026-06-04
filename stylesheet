@@ -38,3 +38,8 @@ button {
   margin: 15px;
   text-transform: uppercase;
 }
+
+img {
+  width: 75vw;
+  height: auto;
+}
