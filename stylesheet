@@ -33,6 +33,7 @@ button {
   margin-bottom: 80px;
   background-color: white;
   color: #296f86;
+  font-size: 1.0625em;
   border-radius: 7px;
   border-color: #296f86;
   border-style: solid;
