@@ -49,14 +49,14 @@ button {
   text-transform: uppercase;
 }
 
-instragram-btn {
-  border-width: 0px;
-  width: 5vw;
-  max-width: 50px;
-}
-
 img {
   max-width: 800px;
   width: 90vw;
   height: auto;
+}
+
+.instragram-btn {
+  border-width: 0px;
+  width: 5vw;
+  max-width: 50px;
 }
