@@ -2,6 +2,7 @@
 body {
   display: grid;
   place-items: center;
+  max-width: 80vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
