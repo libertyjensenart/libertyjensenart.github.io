@@ -49,6 +49,12 @@ button {
   text-transform: uppercase;
 }
 
+.instagram-btn {
+  border-width: 0px;
+  width: 5vw;
+  max-width: 50px;
+}
+
 img {
   max-width: 800px;
   width: 90vw;
