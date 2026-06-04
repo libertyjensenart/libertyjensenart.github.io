@@ -1,10 +1,16 @@
 
+body {
+  display: grid;
+  place-items: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Questrial", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 36;
   color: #4caac9;
+  text-transform: uppercase;
 }
 
 p {
@@ -19,4 +25,16 @@ p {
 
 a {
   color: #4caac9;
+}
+
+button {
+  margin: 100;
+  border-color: #296f86;
+  background-color: white;
+  color: #296f86;
+  border-radius: 7px;
+  width: 500px;
+  padding: 20px;
+  margin: 15px;
+  text-transform: uppercase;
 }
