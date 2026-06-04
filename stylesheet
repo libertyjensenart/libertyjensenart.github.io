@@ -2,7 +2,7 @@
 body {
   display: grid;
   place-items: center;
-  max-width: 80vw;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,6 +22,7 @@ p {
   font-variation-settings: "wdth" 100;
   color: #737373;
   font-size: 17;
+  margin: 10px;
 }
 
 a {
@@ -34,7 +35,7 @@ button {
   background-color: white;
   color: #296f86;
   border-radius: 7px;
-  width: 75vw;
+  width: 80vw;
   max-width: 500px;
   padding: 20px;
   margin: 15px;
@@ -43,6 +44,6 @@ button {
 
 img {
   max-width: 500px;
-  width: 75vw;
+  width: 80vw;
   height: auto;
 }
