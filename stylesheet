@@ -54,7 +54,7 @@ img {
   height: auto;
 }
 
-.instragram-btn {
+.instragram-btn img {
   border-width: 0px;
   width: 5vw;
   max-width: 50px;
