@@ -1,3 +1,9 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 body {
   display: grid;
   place-items: center;
@@ -58,12 +64,6 @@ img {
   border-width: 0px;
   width: 10vw;
   max-width: 100px;
-}
-
-.site-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
  /* The 3-line hamburger button container */
