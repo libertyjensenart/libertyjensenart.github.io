@@ -1,4 +1,3 @@
-
 body {
   display: grid;
   place-items: center;
@@ -59,4 +58,39 @@ img {
   border-width: 0px;
   width: 5vw;
   max-width: 50px;
+}
+
+.site-header {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+/* Individual menu items */
+.main-nav li {
+  margin-left: 20px;
+}
+
+/* Menu links styling */
+.main-nav a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+        }
+
+/* Hover interaction effect */
+.main-nav a:hover {
+  color: #ffffff;
 }
