@@ -1,9 +1,36 @@
-<?php 
-$pageTitle = "Welcome to the Home Page"; 
-require 'header.php'; 
-?>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Art by Liberty Jensen</title>
 
-<h1>Liberty Jensen</h1>
+        <!--Questrial font from Google for Header text-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Questrial&family=Titan+One&display=swap" rel="stylesheet">
+
+        <!--Roboto font from Google for general text-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Questrial&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="stylesheet"/>
+        
+    </head>
+  <body>
+      
+      <header class="site-header">
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+      
+    <h1>Liberty Jensen</h1>
     <img src="DDA07697-6EE1-4E72-8CF6-C087AACBAE98.png" alt="Liberty Jensen profile"></img>
    <p>Liberty (@sprainedtootsie) is a game artist and indie developer from Arkansas, USA.</p>
    <p>Accent color: #4caac9</p>
@@ -14,7 +41,5 @@ require 'header.php';
     <a class="instragram-btn" aria-label="Instagram">
   <img src="IMG_2830.png" alt="" aria-hidden="true">
 </a>
-
-<?php 
-include 'footer.php'; 
-?>
+  </body>
+</html>
