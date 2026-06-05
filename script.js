@@ -1,3 +1,4 @@
+// Header Menu Functions
 const menuBtn = document.getElementById('menuBtn');
 const navMenu = document.getElementById('navMenu');
 
