@@ -1,3 +1,4 @@
+<script>
 // Header Menu Functions
 const menuBtn = document.getElementById('menuBtn');
 const navMenu = document.getElementById('navMenu');
@@ -13,3 +14,4 @@ fetch('header.html')
       document.getElementById('header-placeholder').innerHTML = data;
     })
     .catch(error => console.error('Error loading HTML:', error));
+</script>
