@@ -1,1 +1,224 @@
-portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Portfolio Gallery</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 40px 20px;
+    }
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Filter Buttons Styling */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: #fff;
+      border: 2px solid #333;
+      padding: 8px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    .filter-btn:hover, 
+    .filter-btn.active {
+      background: #333;
+      color: #fff;
+    }
+
+    /* CSS Grid Gallery Layout */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    /* Gallery Card Styling */
+    .portfolio-item {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* Core behavior for JS filtering */
+    .portfolio-item.hide {
+      display: none;
+    }
+
+    .image-box {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .portfolio-item:hover .image-box img {
+      transform: scale(1.05);
+    }
+
+    .item-info {
+      padding: 20px;
+    }
+    .item-info h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    .item-info p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="portfolio-container">
+    <header>
+      <h1>My Portfolio Gallery</h1>
+      <p>A showcase of my recent design and web development work</p>
+    </header>
+
+    <!-- Filter Section -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="web">Web Design</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="photo">Photography</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <main class="gallery-grid">
+      <!-- Item 1 -->
+      <div class="portfolio-item" data-category="web">
+        <div class="image-box">
+          <img src="https://picsum.photos" alt="E-commerce App">
+        </div>
+        <div class="item-info">
+          <h3>E-Commerce Platform</h3>
+          <p>Web Design</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="portfolio-item" data-category="branding">
+        <div class="image-box">
+          
+        </div>
+        <div class="item-info">
+          <h3>Modern Logo Package</h3>
+          <p>Branding</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="portfolio-item" data-category="photo">
+        <div class="image-box">
+          <img src="https://picsum.photos" alt="Urban Landscape">
+        </div>
+        <div class="item-info">
+          <h3>City Street Shadows</h3>
+          <p>Photography</p>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="portfolio-item" data-category="web">
+        <div class="image-box">
+          <img src="https://picsum.photos" alt="SaaS Dashboard">
+        </div>
+        <div class="item-info">
+          <h3>Analytics Dashboard</h3>
+          <p>Web Design</p>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="portfolio-item" data-category="branding">
+        <div class="image-box">
+          <img src="https://picsum.photos" alt="Product Packaging">
+        </div>
+        <div class="item-info">
+          <h3>Eco Cosmetics Pack</h3>
+          <p>Branding</p>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="portfolio-item" data-category="photo">
+        <div class="image-box">
+          <img src="https://picsum.photos" alt="Nature Portrait">
+        </div>
+        <div class="item-info">
+          <h3>Mountain Mist Series</h3>
+          <p>Photography</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Filter Logic -->
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Toggle active styling class on buttons
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        button.classList.add('active');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        // Show or hide items based on category selection
+        galleryItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+          
+          if (filterValue === 'all' || filterValue === itemCategory) {
+            item.classList.remove('hide');
+          } else {
+            item.classList.add('hide');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
