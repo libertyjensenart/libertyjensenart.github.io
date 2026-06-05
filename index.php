@@ -1,6 +1,6 @@
 <?php 
 $pageTitle = "Welcome to the Home Page"; 
-include 'header.php'; 
+require 'header.php'; 
 ?>
 
 <h2>Main Content Area</h2>
