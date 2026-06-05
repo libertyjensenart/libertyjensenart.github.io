@@ -7,9 +7,9 @@ menuBtn.addEventListener('click', () => {
   navMenu.classList.toggle('open');
 });
 
-fetch('navbar.html')
+fetch('header.html')
     .then(response => response.text())
     .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
+      document.getElementById('header-placeholder').innerHTML = data;
     })
     .catch(error => console.error('Error loading HTML:', error));
