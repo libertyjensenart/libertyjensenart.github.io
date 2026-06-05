@@ -60,33 +60,66 @@ img {
   max-width: 50px;
 }
 
-.site-header {
-  background-color: #424242;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.main-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-/* Individual menu items */
-.main-nav li {
-  margin-left: 20px;
-}
-
-/* Menu links styling */
-.main-nav a {
-  transition: color 0.3s ease;
+        /* The 3-line hamburger button container */
+        .menu-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 100;
+            position: relative;
         }
 
-/* Hover interaction effect */
-.main-nav a:hover {
-  color: #ffffff;
-}
+        /* Styling the individual 3 lines */
+        .menu-btn .line {
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Animation: Turns the 3 lines into an 'X' when active */
+        .menu-btn.open .line:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-btn.open .line:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-btn.open .line:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* HTML Navigation menu panel */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hidden off-screen by default */
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            padding-top: 60px;
+            transition: ease 0.3s;
+            box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Slides the menu into view */
+        .nav-menu.open {
+            left: 0;
+        }
+
+        /* Styling inside links */
+        .nav-menu a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #f1f1f1;
+            background-color: #222;
+        }
