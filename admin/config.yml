@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: your-github-username/your-repo-name # ⚠️ Change to your details
+  branch: main
+  base_url: https://api.sveltia.org # 👈 This handles your GitHub login securely for free
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio Projects"
+    folder: "_portfolio"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["web", "branding", "photo"] }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Project Content", name: "body", widget: "markdown" }
