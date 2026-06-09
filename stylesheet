@@ -38,7 +38,7 @@ a {
  color: #4caac9;
 }
 
-button {
+button:not(.filter-btn) {
   margin-bottom: 80px;
   background-color: white;
   color: #296f86;
