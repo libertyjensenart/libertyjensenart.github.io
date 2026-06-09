@@ -1,249 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <title>Portfolio</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta charset="UTF-8">
+       <title>Portfolio</title>
 
-        <!--Questrial font from Google for Header text-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Questrial&family=Titan+One&display=swap" rel="stylesheet">
+      <!--Questrial font from Google for Header text-->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Questrial&family=Titan+One&display=swap" rel="stylesheet">
 
-        <!--Roboto font from Google for general text-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Questrial&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap" rel="stylesheet">
+      <!--Roboto font from Google for general text-->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Questrial&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap" rel="stylesheet">
     
-        <link rel="stylesheet" href="stylesheet"/>
-        
-        
-        
-          <style>
-    /* Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      padding: 40px 20px;
-    }
-    .portfolio-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    header h1 {
-      margin-bottom: 10px;
-    }
+       <link rel="stylesheet" href="stylesheet.css"/>
 
-    /* Filter Buttons Styling */
-    .filter-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      transition: all 0.3s ease;
-    }
+		<style>
+			/* Reset & Base Styles */
+			* {
+      	   		box-sizing: border-box;
+          	margin: 0;
+				padding: 0;
+    		}
+    		body {
+      			padding: 40px 20px;
+    		}
+    		.portfolio-container {
+      			max-width: 1200px;
+      			margin: 0 auto;
+    		}
 
-    /* CSS Grid Gallery Layout */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
+    		/* Filter Buttons Styling */
+    		.filter-buttons {
+				display: flex;
+      			justify-content: center;
+      			gap: 15px;
+      			margin-bottom: 40px;
+      			flex-wrap: wrap;
+				margin-top: 40px;
+    		}
+    		.filter-btn {
+             background-color: #fff;
+				
+				font-size: .75em;
+				border: 3px solid #296f86;
+				border-radius: 20px; 
+				color: #296f86;
+				text-transform: uppercase;
+				padding: 5px 5px 5px 5px;
+				transition: all 0.3s ease;
 
-    /* Gallery Card Styling */
-    .portfolio-item {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-5px);
-    }
+    		}
+
+
+    		/* Grid Gallery Layout */
+    		.gallery-grid {
+      			display: grid;
+      			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      			gap: 25px;
+    		}
+
+    		/* Gallery Card Styling */
+    		.portfolio-item {
+      			background: #fff;
+      			border-radius: 8px;
+      			overflow: hidden;
+      			box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      			transition: transform 0.3s ease, opacity 0.3s ease;
+    		}
+    		.portfolio-item:hover {
+      			transform: translateY(-5px);
+    		}
     
-    /* Core behavior for JS filtering */
-    .portfolio-item.hide {
-      display: none;
-    }
+    		/* JS filtering */
+    		.portfolio-item.hide {
+      			display: none;
+    		}
 
-    .image-box {
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      background-color: #ddd;
-    }
-    .image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    .portfolio-item:hover .image-box img {
-      transform: scale(1.05);
-    }
+    		.image-box {
+      			width: 100%;
+      			height: 250px;
+      			overflow: hidden;
+      			background-color: #ddd;
+    		}
+    		.image-box img {
+      			width: 100%;
+      			height: 100%;
+      			object-fit: cover;
+      			transition: transform 0.3s ease;
+    		}
+    		.portfolio-item:hover .image-box img {
+      			transform: scale(1.05);
+    		}
 
-    .item-info {
-      padding: 20px;
-    }
-    .item-info h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
+    		.item-info {
+      			padding: 20px;
+    		}
+    		.item-info h3 {
+      			font-size: 1.25rem;
+      			margin-bottom: 8px;
+    		}
 
-  </style>
-</head>
-        
-        
-        
+  		</style>
+	</head>
       
-  <body>
-    
-      <header class="site-header">
-        <h1>Liberty Jensen</h1>
-        <div class="menu-btn" id="menuBtn">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
+<body>
+  <div id="header-placeholder"></div>
 
-        <!-- Hidden HTML Navigation Menu -->
-        <nav class="nav-menu" id="navMenu">
-          <a href="index.html">Home</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </header>
-
-  <div class="portfolio-container">
-    <header>
-      <h1>My Portfolio Gallery</h1>
-      <p>A showcase of my recent design and web development work</p>
-    </header>
-
-    <!-- Filter Section -->
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">All Work</button>
-      <button class="filter-btn" data-filter="web">Web Design</button>
-      <button class="filter-btn" data-filter="branding">Branding</button>
-      <button class="filter-btn" data-filter="photo">Photography</button>
-    </div>
-
-    <!-- Gallery Grid -->
-    <main class="gallery-grid">
-      <!-- Item 1 -->
-      <div class="portfolio-item" data-category="web">
-        <div class="image-box">
-          <img src="https://picsum.photos" alt="E-commerce App">
-        </div>
-        <div class="item-info">
-          <h3>E-Commerce Platform</h3>
-          <p>Web Design</p>
-        </div>
-      </div>
-
-      <!-- Item 2 -->
-      <div class="portfolio-item" data-category="branding">
-        <div class="image-box">
-          
-        </div>
-        <div class="item-info">
-          <h3>Modern Logo Package</h3>
-          <p>Branding</p>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="portfolio-item" data-category="photo">
-        <div class="image-box">
-          <img src="https://picsum.photos" alt="Urban Landscape">
-        </div>
-        <div class="item-info">
-          <h3>City Street Shadows</h3>
-          <p>Photography</p>
-        </div>
-      </div>
-
-      <!-- Item 4 -->
-      <div class="portfolio-item" data-category="web">
-        <div class="image-box">
-          <img src="https://picsum.photos" alt="SaaS Dashboard">
-        </div>
-        <div class="item-info">
-          <h3>Analytics Dashboard</h3>
-          <p>Web Design</p>
-        </div>
-      </div>
-
-      <!-- Item 5 -->
-      <div class="portfolio-item" data-category="branding">
-        <div class="image-box">
-          <img src="https://picsum.photos" alt="Product Packaging">
-        </div>
-        <div class="item-info">
-          <h3>Eco Cosmetics Pack</h3>
-          <p>Branding</p>
-        </div>
-      </div>
-
-      <!-- Item 6 -->
-      <div class="portfolio-item" data-category="photo">
-        <div class="image-box">
-          <img src="https://picsum.photos" alt="Nature Portrait">
-        </div>
-        <div class="item-info">
-          <h3>Mountain Mist Series</h3>
-          <p>Photography</p>
-        </div>
-      </div>
-    </main>
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">All Work</button>
+    <button class="filter-btn" data-filter="web">Web Design</button>
+    <button class="filter-btn" data-filter="branding">Branding</button>
+    <button class="filter-btn" data-filter="photo">Photography</button>
   </div>
 
-  <!-- JavaScript Filter Logic -->
+  <main class="gallery-grid" id="portfolio-gallery"></main>
+  <script src="script.js"></script>
   <script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.portfolio-item');
+    // 1. Fetch the data from the folder Decap CMS saves to
+    // GitHub API lets us read files in a directory
+    const repoOwner = 'your-github-username'; // ⚠️ Change this
+    const repoName = 'your-repo-name';       // ⚠️ Change this
+    const gallery = document.getElementById('portfolio-gallery');
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Toggle active styling class on buttons
-        document.querySelector('.filter-btn.active').classList.remove('active');
-        button.classList.add('active');
+    async function loadPortfolio() {
+      try {
+        // Fetch list of files in the _portfolio folder
+        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/_portfolio`);
+        const files = await response.json();
+        
+        // Loop through files and get their JSON content
+        const postPromises = files
+          .filter(file => file.name.endsWith('.json'))
+          .map(file => fetch(file.download_url).then(res => res.json().then(data => ({...data, slug: file.name.replace('.json', '')}))));
+        
+        const posts = await postPromises.all(postPromises);
+        
+        // Render cards
+        displayCards(posts);
+        
+        // Initialize your filtering logic AFTER cards are rendered
+        initFilters();
+      } catch (err) {
+        console.error("Error loading portfolio items:", err);
+        gallery.innerHTML = "<p>Error loading portfolio pieces.</p>";
+      }
+    }
 
-        const filterValue = button.getAttribute('data-filter');
+    function displayCards(posts) {
+      gallery.innerHTML = posts.map(post => `
+        <a href="post.html?project=${post.slug}" class="portfolio-item" data-category="${post.category}" style="text-decoration: none; color: inherit;">
+          <div class="image-box">
+            <img src="${post.thumbnail}" alt="${post.title}">
+          </div>
+          <div class="item-info">
+            <h3>${post.title}</h3>
+            <p>${post.category}</p>
+          </div>
+        </a>
+      `).join('');
+    }
 
-        // Show or hide items based on category selection
-        galleryItems.forEach(item => {
-          const itemCategory = item.getAttribute('data-category');
-          
-          if (filterValue === 'all' || filterValue === itemCategory) {
-            item.classList.remove('hide');
-          } else {
-            item.classList.add('hide');
-          }
+    function initFilters() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.portfolio-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          document.querySelector('.filter-btn.active').classList.remove('active');
+          button.classList.add('active');
+
+          const filterValue = button.getAttribute('data-filter');
+
+          galleryItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (filterValue === 'all' || filterValue === itemCategory) {
+              item.classList.remove('hide');
+            } else {
+              item.classList.add('hide');
+            }
+          });
         });
       });
-    });
-    
-  const menuBtn = document.getElementById('menuBtn');
-  const navMenu = document.getElementById('navMenu');
-  
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    navMenu.classList.toggle('open');
-  });
-    
+    }
+
+    // Run on page load
+    loadPortfolio();
   </script>
+  
+  <script>
+
+  </script>
+</body>
 
 </body>
 </html>
