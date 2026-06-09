@@ -18,7 +18,6 @@
      <!--CSS-->
      <div id="header-placeholder"></div>
      <link rel="stylesheet" href="stylesheet"/>
-    <script src="script.js" defer></script>
         
   </head>
   <body>
@@ -37,23 +36,6 @@
     <a class="instragram-btn" aria-label="Instagram">
       <img src="IMG_2830.png" alt="" aria-hidden="true">
     </a>
-    <script>
-    
-// Header Menu Functions
-const menuBtn = document.getElementById('menuBtn');
-const navMenu = document.getElementById('navMenu');
-
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  navMenu.classList.toggle('open');
-});
-
-fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error('Error loading HTML:', error));
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
