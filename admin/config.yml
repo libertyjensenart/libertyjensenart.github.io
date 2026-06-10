@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-github-username/your-repo-name # ⚠️ Change to your details
+  repo: libertyjensenart/libertyjensenart.github.io # ⚠️ Change to your details
   branch: main
   base_url: https://api.sveltia.org # 👈 This handles your GitHub login securely for free
 
