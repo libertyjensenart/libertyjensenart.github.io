@@ -131,7 +131,7 @@
           .filter(file => file.name.endsWith('.json'))
           .map(file => fetch(file.download_url).then(res => res.json().then(data => ({...data, slug: file.name.replace('.json', '')}))));
         
-        const posts = await postPromises.all(postPromises);
+const posts = await Promise.all(postPromises);
         
         // Render cards
         displayCards(posts);
