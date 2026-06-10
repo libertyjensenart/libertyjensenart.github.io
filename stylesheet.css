@@ -1,0 +1,134 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.25em;
+  color: #4caac9;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  color: ##737373;
+  font-size: 1.0625em;
+  margin: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  text-align: center;
+}
+
+a {
+ color: #4caac9;
+}
+
+button:not(.filter-btn) {
+  margin-bottom: 80px;
+  background-color: white;
+  color: #296f86;
+  font-size: 1.0625em;
+  border-radius: 7px;
+  border-color: #296f86;
+  border-style: solid;
+  border-width: 3px;
+  width: 90vw;
+  max-width: 800px;
+  padding: 20px;
+  margin: 15px;
+  text-transform: uppercase;
+}
+
+img {
+  max-width: 800px;
+  width: 90vw;
+  height: auto;
+}
+
+.instragram-btn img {
+  border-width: 0px;
+  width: 10vw;
+  max-width: 100px;
+}
+
+ /* The 3-line hamburger button container */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+}
+
+/* Styling the individual 3 lines */
+.menu-btn .line {
+   width: 100%;
+   height: 3px;
+   background-color: #737373;
+   transition: all 0.3s ease;
+}
+
+/* Animation: Turns the 3 lines into an 'X' when active */
+.menu-btn.open .line:nth-child(1) {
+   transform: translateY(9px) rotate(45deg);
+}
+
+.menu-btn.open .line:nth-child(2) {
+   opacity: 0;
+}
+
+.menu-btn.open .line:nth-child(3) {
+   transform: translateY(-9px) rotate(-45deg);
+}
+
+/* HTML Navigation menu panel */
+.nav-menu {
+   position: fixed;
+   top: 0;
+   right: 0; /* Hidden off-screen by default */
+   width: 250px;
+   height: 100%;
+   background-color: #4caac9;
+   padding-top: 60px;
+   transform: translateX(100%);
+   transition: ease 0.3s;
+}
+
+/* Slides the menu into view */
+.nav-menu.open {
+   transform: translateX(0);
+}
+
+/* Styling inside links */
+.nav-menu a {
+   padding: 15px 25px;
+   font-family: "Roboto", sans-serif;
+   font-size: 18px;
+   text-decoration: none;
+   color: #fff;
+   display: block;
+   transition: 0.3s;
+}
+
+.nav-menu a:hover {
+   color: #f1f1f1;
+   background-color: #222;
+}
