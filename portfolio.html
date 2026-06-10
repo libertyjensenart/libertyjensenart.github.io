@@ -154,21 +154,27 @@
     }
 
     // This function builds the HTML cards for your main gallery page
+    // 1. Updated to join multiple categories into a single data attribute
     function displayCards(posts) {
-      gallery.innerHTML = posts.map(post => `
-        <a href="post.html?project=${post.slug}" class="portfolio-item" data-category="${post.category}" style="text-decoration: none; color: inherit;">
-          <div class="image-box">
-            <img src="${post.thumbnail}" alt="${post.title}">
-          </div>
-          <div class="item-info">
-            <h3>${post.title}</h3>
-            <p>${post.category}</p>
-          </div>
-        </a>
-      `).join('');
+      gallery.innerHTML = posts.map(post => {
+        // Ensure categories is an array, otherwise default to an empty array
+        const categoriesArray = Array.isArray(post.categories) ? post.categories : [post.category || ""];
+        const categoryDataString = categoriesArray.join(' '); // e.g., "digital-art game-development"
+
+        return `
+          <a href="post.html?project=${post.slug}" class="portfolio-item" data-categories="${categoryDataString}" style="text-decoration: none; color: inherit;">
+            <div class="image-box">
+              <img src="${post.thumbnail}" alt="${post.title}">
+            </div>
+            <div class="item-info">
+              <h3>${post.title}</h3>
+            </div>
+          </a>
+        `;
+      }).join('');
     }
 
-    // This function controls your category sorting buttons
+    // 2. Updated filtering logic to check if the card contains the selected category
     function initFilters() {
       const filterButtons = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.portfolio-item');
@@ -181,8 +187,11 @@
           const filterValue = button.getAttribute('data-filter');
 
           galleryItems.forEach(item => {
-            const itemCategory = item.getAttribute('data-category');
-            if (filterValue === 'all' || filterValue === itemCategory) {
+            // Read the space-separated list of categories from the card
+            const itemCategories = item.getAttribute('data-categories').split(' ');
+            
+            // Show item if 'all' is selected OR if the item's categories list includes the filter value
+            if (filterValue === 'all' || itemCategories.includes(filterValue)) {
               item.classList.remove('hide');
             } else {
               item.classList.add('hide');
