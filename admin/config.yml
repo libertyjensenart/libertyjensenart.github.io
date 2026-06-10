@@ -17,6 +17,6 @@ collections:
     format: "json"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["web", "branding", "photo"] }
+      - { label: "Category", name: "category", widget: "select", options: ["digital-art", "web-design", "game-development"] }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Project Content", name: "body", widget: "markdown" }
