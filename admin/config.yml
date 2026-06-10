@@ -16,11 +16,20 @@ collections:
     extension: "json"
     format: "json"
     fields:
-  - label: "Categories"
-    name: "categories" # Notice we changed this to plural
-    widget: "list"
-    field: { name: "category", widget: "select", options: ["digital-art", "web-design", "game-development"] }
-  - { label: "Featured Image", name: "thumbnail", widget: "image" }
-  - { label: "Category", name: "category", widget: "select", options: ["digital-art", "web-design", "game-development"] }
-  - { label: "Featured Image", name: "thumbnail", widget: "image" }
-  - { label: "Project Content", name: "body", widget: "markdown" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Categories"
+        name: "categories"
+        widget: "select"
+        multiple: true # 👈 This is the clean Sveltia way to allow multiple choices
+        options: ["digital-art", "web-design", "game-development"]
+
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+
+      - label: "Project Content"
+        name: "body"
+        widget: "markdown"
