@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: libertyjensenart/libertyjensenart.github.io # ⚠️ Change to your details
+  repo: libertyjensenart/libertyjensenart.github.io
   branch: main
-  base_url: https://api.sveltia.org # 👈 This handles your GitHub login securely for free
+  base_url: https://api.sveltia.org
 
 media_folder: "images"
 public_folder: "/images"
