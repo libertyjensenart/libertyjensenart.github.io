@@ -5,5 +5,5 @@
     "game-development"
   ],
   "thumbnail": "/images/IMG_2811.webp",
-  "body": "Assets made in womp.com"
+  "body": "<a href=“https://sprainedtootsie.itch.io/chair-champions>Chair Champions</a> is a game developed by myself and 3 others during the 2024 GDFG Team Game Jam over 30 days. The game is inspired by musical chairs. You race NPCs through environmental obstacles to claim the chair first. \n\nI took on the role as environment artist, and designed the <a href=“https://sprainedtootsie.itch.io/chair-champions>itch.io page</a>. \n\nAssets were either sourced from itch.io, or created in Vectary.com. VFX files were pulled into Blender and exported, then positioned and animated in Unity (Unity did not like the VFX files if they came straight from Vectary). The project was managed in Github.\n\nLevel Zero: Tutorial\n\n![](/images/IMG_2809.webp)\n\nLevel One: Gardens\n\n![](/images/IMG_2810.webp)\n\nLevel Two: Space\n\n![](/images/IMG_2811.webp)\n\nLevel Three: Beach\n\n![](/images/IMG_2812.webp)"
 }
