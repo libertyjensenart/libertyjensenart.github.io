@@ -16,7 +16,11 @@ collections:
     extension: "json"
     format: "json"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["digital-art", "web-design", "game-development"] }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Project Content", name: "body", widget: "markdown" }
+  - label: "Categories"
+    name: "categories" # Notice we changed this to plural
+    widget: "list"
+    field: { name: "category", widget: "select", options: ["digital-art", "web-design", "game-development"] }
+  - { label: "Featured Image", name: "thumbnail", widget: "image" }
+  - { label: "Category", name: "category", widget: "select", options: ["digital-art", "web-design", "game-development"] }
+  - { label: "Featured Image", name: "thumbnail", widget: "image" }
+  - { label: "Project Content", name: "body", widget: "markdown" }
