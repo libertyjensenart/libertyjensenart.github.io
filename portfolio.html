@@ -121,28 +121,34 @@
     const gallery = document.getElementById('portfolio-gallery');
 
     async function loadPortfolio() {
-      try {
-        // Fetch list of files in the _portfolio folder
-        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/_portfolio`);
-        const files = await response.json();
-        
-        // Loop through files and get their JSON content
-        const postPromises = files
-          .filter(file => file.name.endsWith('.json'))
-          .map(file => fetch(file.download_url).then(res => res.json().then(data => ({...data, slug: file.name.replace('.json', '')}))));
-        
-const posts = await Promise.all(postPromises);
-        
-        // Render cards
-        displayCards(posts);
-        
-        // Initialize your filtering logic AFTER cards are rendered
-        initFilters();
-      } catch (err) {
-        console.error("Error loading portfolio items:", err);
-        gallery.innerHTML = "<p>Error loading portfolio pieces.</p>";
-      }
-    }
+  try {
+    // 1. Fetch list of files using a timestamp to bypass GitHub's API cache
+    const timestamp = new Date().getTime();
+    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/_portfolio?t=${timestamp}`);
+    
+    if (!response.ok) throw new Error("Failed to talk to GitHub API");
+    const files = await response.json();
+    
+    // 2. Map through files, filter for JSON, and grab their individual content
+    const postPromises = files
+      .filter(file => file.name.endsWith('.json'))
+      .map(file => fetch(`${file.download_url}?t=${timestamp}`).then(res => res.json().then(data => ({
+        ...data, 
+        slug: file.name.replace('.json', '')
+      }))));
+    
+    // 3. Wait for all files to finish downloading correctly
+    const posts = await Promise.all(postPromises);
+    
+    // 4. Render cards & setup filters
+    displayCards(posts);
+    initFilters();
+    
+  } catch (err) {
+    console.error("Error loading portfolio items:", err);
+    gallery.innerHTML = "<p>Error loading portfolio pieces. Check browser console for details.</p>";
+  }
+}
 
     function displayCards(posts) {
       gallery.innerHTML = posts.map(post => `
