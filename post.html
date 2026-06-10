@@ -18,9 +18,7 @@
     <div class="post-container">
         <div class="post-header">
             <h2 id="post-title">Loading...</h2>
-            <p id="post-category"
-style="text-transform: uppercase; color: #296f86; font-weight: bold; margin: 10px
-0; "></p>
+
             <img id="post-hero" src="" alt="" style="display: none;">
         </div>
         <div id="post-content" class="post-content"></div>
@@ -46,7 +44,6 @@ style="text-transform: uppercase; color: #296f86; font-weight: bold; margin: 10p
 
                 document.title = project.title;
                 document.getElementById('post-title').innerText = project.title;
-                document.getElementById('post-category').innerText = project.category;
                 
                 if(project.thumbnail) {
                     const hero = document.getElementById('post-hero');
