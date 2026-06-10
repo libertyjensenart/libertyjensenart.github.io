@@ -111,73 +111,49 @@
     <button class="filter-btn" data-filter="game-development">Game Development</button>
   </div>
 
-  <main class="gallery-grid" id="portfolio-gallery"></main>
+<main class="gallery-grid" id="portfolio-gallery"></main>
+  
   <script src="script.js"></script>
   <script>
-    // 1. Fetch the data from the folder Decap CMS saves to
-    // GitHub API lets us read files in a directory
     const repoOwner = 'libertyjensenart';
     const repoName = 'libertyjensenart.github.io';
     const gallery = document.getElementById('portfolio-gallery');
 
-async function loadPost() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectSlug = urlParams.get('project');
+    // This function downloads the content of the _portfolio folder to look for posts
+    async function loadPortfolio() {
+      try {
+        const timestamp = new Date().getTime();
+        const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/_portfolio?t=${timestamp}`;
 
-    // ⚠️ UPDATE THESE AGAIN
-    const repoOwner = 'libertyjensenart'; 
-    const repoName = 'libertyjensenart.github.io'; 
-
-    if (!projectSlug) {
-        document.getElementById('post-title').innerText = "Project not specified.";
-        return;
-    }
-
-    // Using the GitHub API URL instead of the Raw URL
-    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/_portfolio/${projectSlug}.json`;
-
-    try {
         const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error("Failed to talk to GitHub API");
         
-        if (!response.ok) {
-            throw new Error(`Project file not found (Status: ${response.status})`);
-        }
-
-        const fileData = await response.json();
+        const files = await response.json();
         
-        // GitHub API returns content in Base64 encoding, we must decode it
-        // atob() decodes base64, and decodeURIComponent handles special characters
-        const decodedContent = decodeURIComponent(escape(atob(fileData.content)));
-        const project = JSON.parse(decodedContent);
-
-        // Populate the page
-        document.title = project.title;
-        document.getElementById('post-title').innerText = project.title;
-        document.getElementById('post-category').innerText = project.category;
+        // Loop through all the JSON files in your _portfolio folder
+        const postPromises = files
+          .filter(file => file.name.endsWith('.json'))
+          .map(file => 
+            fetch(`${file.download_url}?t=${timestamp}`)
+              .then(res => res.json())
+              .then(data => ({
+                ...data, 
+                slug: file.name.replace('.json', '')
+              }))
+          );
         
-        if(project.thumbnail) {
-            const hero = document.getElementById('post-hero');
-            hero.src = project.thumbnail;
-            hero.style.display = 'block';
-        }
-
-        // Render the body content (Markdown to HTML)
-        if (typeof marked !== 'undefined') {
-            document.getElementById('post-content').innerHTML = marked.parse(project.body || "");
-        } else {
-            document.getElementById('post-content').innerText = project.body;
-        }
-
-    } catch (err) {
-        console.error("Post Load Error:", err);
-        document.getElementById('post-title').innerText = "Error Loading Post";
-        document.getElementById('post-content').innerHTML = `
-            <p style="color:red;"><b>Error:</b> ${err.message}</p>
-            <p>Make sure the file <b>_portfolio/${projectSlug}.json</b> exists in your repo.</p>
-        `;
+        const posts = await Promise.all(postPromises);
+        
+        displayCards(posts);
+        initFilters();
+        
+      } catch (err) {
+        console.error("Error loading portfolio items:", err);
+        gallery.innerHTML = "<p style='color: red;'>Error loading portfolio pieces. See console for details.</p>";
+      }
     }
-}
 
+    // This function builds the HTML cards for your main gallery page
     function displayCards(posts) {
       gallery.innerHTML = posts.map(post => `
         <a href="post.html?project=${post.slug}" class="portfolio-item" data-category="${post.category}" style="text-decoration: none; color: inherit;">
@@ -192,6 +168,7 @@ async function loadPost() {
       `).join('');
     }
 
+    // This function controls your category sorting buttons
     function initFilters() {
       const filterButtons = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.portfolio-item');
@@ -218,7 +195,5 @@ async function loadPost() {
     // Run on page load
     loadPortfolio();
   </script>
-</body>
-
 </body>
 </html>
